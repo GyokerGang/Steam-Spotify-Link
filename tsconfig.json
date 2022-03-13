@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "module": "ES2020",
+        "moduleResolution": "Node",
+        "outDir": "build/",
+        "types": [ "node" ],
+        "incremental": true,
+        "allowSyntheticDefaultImports": true
+    },
+    "include": [ "src/**/*" ],
+    "exclude": [ "node_modules/" ]
+}

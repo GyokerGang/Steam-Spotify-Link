@@ -1,15 +1,7 @@
 import request from 'request';
 import SteamUser from 'steam-user';
 import SteamTOTP from 'steam-totp';
-
-// Steam credentials
-const username = 'user123';
-const password = 'pwd123';
-const sharedSecret = 'secret123';
-
-// Spotify credentials
-const spotifyToken = 'spotifydevtoken';
-
+import config from './config.json';
 const client = new SteamUser();
 
 const TimeUnits = {
@@ -37,7 +29,7 @@ const updateStatus = () => {
         headers: {
             accept: 'application/json',
             'content-type': 'application/json',
-            authorization: `Bearer ${spotifyToken}`
+            authorization: `Bearer ${config.spotifyToken}`
         },
         json: true
     }, (err, res, body) => {
@@ -47,7 +39,7 @@ const updateStatus = () => {
     });
 };
 
-client.once('steamGuard', (domain, cb) => cb(SteamTOTP.generateAuthCode(sharedSecret)));
+client.once('steamGuard', (domain, cb) => cb(SteamTOTP.generateAuthCode(config.sharedSecret)));
 
 client.once('loggedOn', () => {
 
@@ -59,6 +51,6 @@ client.once('loggedOn', () => {
 });
 
 client.logOn({
-    accountName: username,
-    password: password
+    accountName: config.username,
+    password: config.password
 });

@@ -6,17 +6,21 @@
     "type": "module",
     "scripts": {
         "build": "tsc",
-        "start": "cd build\\ && node index.js"
+        "startWindows": "cd build\\ && node index.js",
+        "start": "cd build && node --experimental-json-modules index.js"
     },
     "author": "Marcell Török <marci@marci.wtf>",
-    "contributors": ["LifeGamer <lifegamer.hu@gmail.com>"],
+    "contributors": [
+        "LifeGamer <lifegamer.hu@gmail.com>"
+    ],
     "license": "ISC",
     "dependencies": {
         "clipboardy": "^3.0.0",
         "request": "^2.88.2",
         "steam-totp": "^2.1.1",
         "steam-tradeoffer-manager": "^2.10.4",
-        "steam-user": "^4.24.0"
+        "steam-user": "^4.24.0",
+        "typescript": "^4.6.3"
     },
     "devDependencies": {
         "@types/request": "^2.48.8",
